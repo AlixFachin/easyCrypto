@@ -5,9 +5,31 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: lightgrey;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.panel {
+  width: 80%;
+  background-color: rgba(255,255,255,0.8);
+  border: 2px solid black;
+}
+
+.errorWidget {
+  border: 2px solid red;
+}
+
+.numberField {
+  min-width: 50px;
 }
