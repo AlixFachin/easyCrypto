@@ -42,3 +42,19 @@ export function getCoprimeList(a,b) {
   return coprimeArray;
 
 }
+
+export function findModuloInverses(a, b, n=5) {
+  // Returns a list of the first n integers k which are such that a*k = 1 mod b
+  let i= JSBI.BigInt(2);
+  let nbFound = 0;
+  let result = [];
+  while (nbFound < n && JSBI.lessThan(i, JSBI.BigInt(500))) {
+    if (JSBI.equal(JSBI.BigInt(1),JSBI.remainder(JSBI.multiply(a,i),b))) {
+      result.push(i);
+      nbFound++;
+    }
+    // Going to the next loop
+    i = JSBI.add(i, JSBI.BigInt(1));
+  }
+  return result;
+}

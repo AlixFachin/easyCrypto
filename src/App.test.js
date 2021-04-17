@@ -4,7 +4,7 @@ import KeyGenerator, { isPrime } from './keyGenerator';
 
 // to test the arithmetic utils
 import JSBI from 'jsbi';
-import { gcd, getCoprimeList} from './utils/mathUtils';
+import { findModuloInverses, gcd, getCoprimeList} from './utils/mathUtils';
 
 
 test('renders learn react link', () => {
@@ -41,6 +41,15 @@ test('Get Coprime List function', () => {
   }
 
 });
+
+test('Find modulo inverses', () => {
+  let invertList = findModuloInverses(JSBI.BigInt(5), JSBI.BigInt(6));
+  const expectedList = [5,11,17,23,29];
+  for (let i=0; i<expectedList.length; i++) {
+    expect(JSBI.EQ(invertList[i],expectedList[i])).toEqual(true);
+  }
+})
+
 
 test('satisfactory test if a number is prime', () => {
   render(<KeyGenerator />);
