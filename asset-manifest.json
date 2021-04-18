@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/easyCrypto/static/css/main.4fe2794d.chunk.css",
+    "main.js": "/easyCrypto/static/js/main.dfd48325.chunk.js",
+    "main.js.map": "/easyCrypto/static/js/main.dfd48325.chunk.js.map",
+    "runtime-main.js": "/easyCrypto/static/js/runtime-main.addff7d0.js",
+    "runtime-main.js.map": "/easyCrypto/static/js/runtime-main.addff7d0.js.map",
+    "static/js/2.0ad6a65c.chunk.js": "/easyCrypto/static/js/2.0ad6a65c.chunk.js",
+    "static/js/2.0ad6a65c.chunk.js.map": "/easyCrypto/static/js/2.0ad6a65c.chunk.js.map",
+    "index.html": "/easyCrypto/index.html",
+    "static/css/main.4fe2794d.chunk.css.map": "/easyCrypto/static/css/main.4fe2794d.chunk.css.map",
+    "static/js/2.0ad6a65c.chunk.js.LICENSE.txt": "/easyCrypto/static/js/2.0ad6a65c.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.addff7d0.js",
+    "static/js/2.0ad6a65c.chunk.js",
+    "static/css/main.4fe2794d.chunk.css",
+    "static/js/main.dfd48325.chunk.js"
+  ]
+}
