@@ -1,4 +1,5 @@
 import './App.css';
+import EncodingPanel from './encodingPanel';
 import "./keyGenerator";
 import  KeyGenerator from './keyGenerator';
 
@@ -10,6 +11,7 @@ function App() {
         <p> Trying to help you understand crypto </p>
 
         <KeyGenerator />
+        <EncodingPanel />
 
       </div>
     </>

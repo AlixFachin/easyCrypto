@@ -24,6 +24,9 @@ code {
   width: 80%;
   background-color: rgba(255,255,255,0.8);
   border: 2px solid black;
+  margin-bottom: 10px;
+  padding-top: 1em;
+  padding-bottom: 1em;
 }
 
 .errorWidget {

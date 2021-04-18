@@ -58,3 +58,29 @@ export function findModuloInverses(a, b, n=5) {
   }
   return result;
 }
+
+export function encodeOneCharacter(character, publicKey1, publicKey2) {
+  // formula = characterCode**publicKey1 [mod publicKey2] 
+  const charCode = JSBI.BigInt(character.charCodeAt(0));
+  const codedChar = JSBI.remainder( JSBI.exponentiate(charCode, publicKey1),publicKey2 )
+  // return String.fromCharCode(JSBI.toNumber(codedChar) );
+  // console.log(`Output of the encoding: ${codedChar}`)
+  return codedChar;
+}
+
+export function decodeOneCharacter(JSBIcode, privateKey, publicKey2) {
+  // formula = characterCode**privateKey [mod publicKey2]
+  // const charCode = JSBI.BigInt(character.charCodeAt(0));
+  const decodedChar = JSBI.remainder( JSBI.exponentiate(JSBIcode, privateKey),publicKey2 )
+  // console.log(`Output of decoding: ${codedChar}`);
+  return String.fromCharCode(JSBI.toNumber(decodedChar) );
+}
+
+export function encodeString(inputString, privateKey1, privateKey2) {
+  // utf-8 table: 
+  // characters between #21 and #7E
+
+
+
+
+}

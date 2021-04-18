@@ -4,7 +4,7 @@ import KeyGenerator, { isPrime } from './keyGenerator';
 
 // to test the arithmetic utils
 import JSBI from 'jsbi';
-import { findModuloInverses, gcd, getCoprimeList} from './utils/mathUtils';
+import { findModuloInverses, gcd, getCoprimeList, encodeOneCharacter, decodeOneCharacter} from './utils/mathUtils';
 
 
 test('renders learn react link', () => {
@@ -50,6 +50,11 @@ test('Find modulo inverses', () => {
   }
 })
 
+test('Encoding and decoding functions', () => {
+  for (let x of 'abcdefghijklmnopqrstuvwxyz1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ') {
+    expect(decodeOneCharacter(encodeOneCharacter(x,JSBI.BigInt(107), JSBI.BigInt(143)),JSBI.BigInt(83), JSBI.BigInt(143))).toEqual(x);
+  }
+})
 
 test('satisfactory test if a number is prime', () => {
   render(<KeyGenerator />);

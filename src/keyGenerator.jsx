@@ -30,8 +30,28 @@ export default function KeyGenerator() {
 
   useEffect(() => {
     console.log(firstPrime, secondPrime);
+    let messageArray = [];
     if (firstPrime && secondPrime) {
-      getPublicKey();
+      clearStepsList();
+      const b = JSBI.multiply(firstPrime, secondPrime);
+      const phi_b = JSBI.multiply(JSBI.subtract(firstPrime, JSBI.BigInt(1)), JSBI.subtract(secondPrime, JSBI.BigInt(1)));
+      console.log(`b=${b.toString() }, phiB=${phi_b.toString()}`);
+      messageArray.push(`b=${b.toString() }, phiB=${phi_b.toString()}`);
+      // Now we need to look at all the numbers between 1 and phi_b and get the list of all those ones which are coprimes
+      // with both b and phi_b
+      const coPrimeList = getCoprimeList(b, phi_b);
+      messageArray.push('Coprime list: ' + coPrimeList.map((coprimeValue) => coprimeValue.toString()).join(', '));
+      // Now we have to suggest the list of co-primes, and for each co-prime (Which could be a private key)
+      // we need to choose a number such that e*d = 1 mod( phi_b )
+      let potentialKeys = [];
+      for (let encodingKey of coPrimeList) {
+        // encodingKey is a potential for encoding Key
+        potentialKeys = findModuloInverses(encodingKey, phi_b, 3);
+        for (let i=0; i<potentialKeys.length; i++) {
+          messageArray.push(`Potential public key: (${encodingKey.toString()},${b.toString()}), private key: ${potentialKeys[i].toString()}`);
+        }
+      }
+      setStepsList(messageArray);
     }
   }, [firstPrime, secondPrime]);
 
@@ -39,37 +59,6 @@ export default function KeyGenerator() {
     setMessage({ text: messageText, messageType: messageType });
   }
 
-  function getPublicKey() {
-    clearStepsList();
-    const b = JSBI.multiply(firstPrime, secondPrime);
-    const phi_b = JSBI.multiply(JSBI.subtract(firstPrime, JSBI.BigInt(1)), JSBI.subtract(secondPrime, JSBI.BigInt(1)));
-    console.log(`b=${b.toString() }, phiB=${phi_b.toString()}`);
-    addStepMessage(`b=${b.toString() }, phiB=${phi_b.toString()}`);
-    // Now we need to look at all the numbers between 1 and phi_b and get the list of all those ones which are coprimes
-    // with both b and phi_b
-    const coPrimeList = getCoprimeList(b, phi_b);
-    addStepMessage('Coprime list: ' + coPrimeList.map((coprimeValue) => coprimeValue.toString()).join(', '));
-    // Now we have to suggest the list of co-primes, and for each co-prime (Which could be a private key)
-    // we need to choose a number such that e*d = 1 mod( phi_b )
-    let potentialKeys = [];
-    let messageArray = [];
-    for (let encodingKey of coPrimeList) {
-      // encodingKey is a potential for encoding Key
-      potentialKeys = findModuloInverses(encodingKey, phi_b);
-      for (let i=0; i<potentialKeys.length; i++) {
-        messageArray.push(`Potential public key: (${encodingKey.toString()},${b.toString()}), private key: ${potentialKeys[i].toString()}`);
-      }
-    }
-    setStepsList(messageArray);
-  }
-
-  // function get100Primes() {
-  //   let tempResult = [];
-  //   for (let i=1; i<100; i++) {
-  //     if (isPrime(i)) {tempResult.push(i);}
-  //   }
-  //   return tempResult;
-  // }
 
   function inputChange(e){
     const inputValue = e.target.value;
