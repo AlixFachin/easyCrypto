@@ -20,7 +20,7 @@ function App() {
       <div className="App">
         <header> <h1> Easy Crypto!</h1>
         <p> Easy implementation of the RSA algorithm </p>
-        <div class="button-row">
+        <div className="button-row">
           <button onClick={ onKeyGenClick}>Key Generator</button>
           <button onClick={ onEncodingClick}>Encoding/Decoding</button>
         </div>

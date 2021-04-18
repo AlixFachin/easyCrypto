@@ -1,10 +1,10 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
-import KeyGenerator, { isPrime } from './keyGenerator';
+import KeyGenerator from './keyGenerator';
 
 // to test the arithmetic utils
 import JSBI from 'jsbi';
-import { findModuloInverses, gcd, getCoprimeList, encodeOneCharacter, decodeOneCharacter} from './utils/mathUtils';
+import { findModuloInverses, gcd, getCoprimeList, encodeOneCharacter, decodeOneCharacter, isPrime, findFirstPrimes} from './utils/mathUtils';
 
 
 test('renders learn react link', () => {
@@ -50,6 +50,13 @@ test('Find modulo inverses', () => {
   }
 })
 
+test('Function which returns the primes lower than n', () => {
+  expect(findFirstPrimes).toBeDefined();
+  const expectedPrimes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97];
+  expect(findFirstPrimes(100)).toEqual(expectedPrimes);
+
+})
+
 test('Encoding and decoding functions', () => {
   for (let x of 'abcdefghijklmnopqrstuvwxyz1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ') {
     expect(decodeOneCharacter(encodeOneCharacter(x,JSBI.BigInt(107), JSBI.BigInt(143)),JSBI.BigInt(83), JSBI.BigInt(143))).toEqual(x);
@@ -57,7 +64,6 @@ test('Encoding and decoding functions', () => {
 })
 
 test('satisfactory test if a number is prime', () => {
-  render(<KeyGenerator />);
   expect(isPrime).toBeDefined();
   expect(isPrime(5)).toEqual(true);
   expect(isPrime(4)).toEqual(false);

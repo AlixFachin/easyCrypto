@@ -57,3 +57,26 @@ code {
   text-align: center;
   background-color: rgba(255,255,255,0.8);
 }
+
+.numberList {
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  margin-top:5px;
+  margin-bottom: 1rem;
+}
+
+.numberBox {
+  background: white;
+  border: 1px solid black;
+  padding: 3px 3px 3px 3px;
+  margin-right: 5px;
+  min-width:2em; 
+}
+
+.numberBox:hover {
+  border-color: lightpink;
+  transform: scale(1.2);
+}

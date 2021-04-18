@@ -18,6 +18,27 @@ export function isPrime(x) {
   return true;
 }
 
+export function findFirstPrimes(n=100) {
+  // input: n is an integer, which says the maximum number of 100
+  const primeList = [];
+  for (let i=2; i < n; i++){
+    // We look if we can find divisors in the prime list
+    let foundDivisors = false;
+    let k=0
+    while (!foundDivisors && k < primeList.length ) {
+      if (i % primeList[k] === 0) {
+        foundDivisors = true;
+      } else {
+        k = k +1;
+      }
+    }
+    if (!foundDivisors) {
+      primeList.push(i);
+    }
+  }
+  return primeList;
+}
+
 export function gcd(a, b) {
   if (JSBI.EQ(a,0)) {
     return b;

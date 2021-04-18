@@ -1,16 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import MessageBox from './MessageBox';
+import HelpPrimeBox  from './helpPrimeBox';
 import JSBI from 'jsbi';
-import { getCoprimeList, findModuloInverses} from './utils/mathUtils';
-
-export function isPrime(x) {
-  for (let i=2; i< x; i++) {
-    if (x % i === 0) {
-      return false;
-    }
-  }
-  return true;
-}
+import { getCoprimeList, findModuloInverses, isPrime} from './utils/mathUtils';
 
 export default function KeyGenerator() {
 
@@ -22,12 +14,7 @@ export default function KeyGenerator() {
   function clearStepsList() {
     setStepsList([]);
   }
-  function addStepMessage(newStepMessage) {
-    console.log(newStepMessage);
-    console.log(stepsList);
-    setStepsList(stepsList.concat(newStepMessage));
-  }
-
+  
   useEffect(() => {
     console.log(firstPrime, secondPrime);
     let messageArray = [];
@@ -81,6 +68,22 @@ export default function KeyGenerator() {
     }
   }
 
+  function primeNumberSelected(event) {
+    // function which will be passed down to childen in order to select the two prime numbers
+    console.log('Number clicked!');
+    console.log(event);
+    const numberClicked = event.target.dataset['key'];
+    if (!isNaN(Number(numberClicked)) && isPrime(Number(numberClicked))) {
+      if (!firstPrime) { 
+        setFirstPrime(JSBI.BigInt(numberClicked));
+        document.getElementById("firstPrimeInput").value = numberClicked;
+      } else {
+        setSecondPrime(JSBI.BigInt(numberClicked));
+        document.getElementById("secondPrimeInput").value = numberClicked;
+      }
+    }
+  }
+
   return (<div className="panel">
     <header> <h2>Public / Private Key Generator</h2> </header>
     <section>
@@ -88,6 +91,7 @@ export default function KeyGenerator() {
       <p>Please note that the product of the two prime numbers should be higher than 130 for the coding/decoding to work. 
         Please kindly choose numbers less than 1000 though, otherwise it would take too much time to compute.
       </p>
+      <HelpPrimeBox primeNumberSelected={primeNumberSelected}/>
       <MessageBox text={message.text} messageType={message.messageType}/>
       <input type="text" id="firstPrimeInput" onChange={ inputChange }></input>
       <input type="text" id="secondPrimeInput" onChange={ inputChange }></input>
