@@ -29,6 +29,13 @@ code {
   padding-bottom: 1em;
 }
 
+.button-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .errorWidget {
   border: 2px solid red;
 }
