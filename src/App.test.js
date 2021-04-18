@@ -9,7 +9,7 @@ import { findModuloInverses, gcd, getCoprimeList, encodeOneCharacter, decodeOneC
 
 test('renders learn react link', () => {
   render(<App />);
-  const linkElement = screen.getByText(/Trying to help/i);
+  const linkElement = screen.getByText(/Easy implementation/i);
   expect(linkElement).toBeInTheDocument();
 });
 

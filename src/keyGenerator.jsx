@@ -70,7 +70,7 @@ export default function KeyGenerator() {
         logMessage('input not prime!');
     } else {
       // Proper input
-      setStepsList([]);
+      logMessage('');
       const inputPrime = JSBI.BigInt(inputValue);
       console.log(inputPrime);
       if (e.target.id === 'firstPrimeInput') {
@@ -85,6 +85,9 @@ export default function KeyGenerator() {
     <header> <h2>Public / Private Key Generator</h2> </header>
     <section>
       <h3>Please enter two prime numbers of your choice:</h3>
+      <p>Please note that the product of the two prime numbers should be higher than 130 for the coding/decoding to work. 
+        Please kindly choose numbers less than 1000 though, otherwise it would take too much time to compute.
+      </p>
       <MessageBox text={message.text} messageType={message.messageType}/>
       <input type="text" id="firstPrimeInput" onChange={ inputChange }></input>
       <input type="text" id="secondPrimeInput" onChange={ inputChange }></input>
