@@ -3,6 +3,10 @@ This small project comes from the fact that we encounter many times the concept 
 Due to security requirements, the numbers involved in this are huge and this prevents basic understanding.
 I tried then to implement the algorithm by myself to understand the basics.
 
+# Deployment
+This page is accessible on Github pages at the following address:
+<https://alixfachin.github.io/easyCrypto/>
+
 # Disclaimer
 Please kindly remember that this project is meant for teaching/understanding and as a result please **do not use the results** to encode sensitive information. I cannot be responsible for damage or negative outcomes following using this program with personal and/or sensitive information.
 
