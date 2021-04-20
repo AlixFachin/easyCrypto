@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/easyCrypto/static/css/main.70193be3.chunk.css",
-    "main.js": "/easyCrypto/static/js/main.4acb73af.chunk.js",
-    "main.js.map": "/easyCrypto/static/js/main.4acb73af.chunk.js.map",
+    "main.css": "/easyCrypto/static/css/main.57e76f6f.chunk.css",
+    "main.js": "/easyCrypto/static/js/main.a6753ab9.chunk.js",
+    "main.js.map": "/easyCrypto/static/js/main.a6753ab9.chunk.js.map",
     "runtime-main.js": "/easyCrypto/static/js/runtime-main.addff7d0.js",
     "runtime-main.js.map": "/easyCrypto/static/js/runtime-main.addff7d0.js.map",
     "static/js/2.0ad6a65c.chunk.js": "/easyCrypto/static/js/2.0ad6a65c.chunk.js",
     "static/js/2.0ad6a65c.chunk.js.map": "/easyCrypto/static/js/2.0ad6a65c.chunk.js.map",
     "index.html": "/easyCrypto/index.html",
-    "static/css/main.70193be3.chunk.css.map": "/easyCrypto/static/css/main.70193be3.chunk.css.map",
+    "static/css/main.57e76f6f.chunk.css.map": "/easyCrypto/static/css/main.57e76f6f.chunk.css.map",
     "static/js/2.0ad6a65c.chunk.js.LICENSE.txt": "/easyCrypto/static/js/2.0ad6a65c.chunk.js.LICENSE.txt",
     "static/media/index.css": "/easyCrypto/static/media/markus-spiske-matrix-unsplash.e3979111.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.addff7d0.js",
     "static/js/2.0ad6a65c.chunk.js",
-    "static/css/main.70193be3.chunk.css",
-    "static/js/main.4acb73af.chunk.js"
+    "static/css/main.57e76f6f.chunk.css",
+    "static/js/main.a6753ab9.chunk.js"
   ]
 }
