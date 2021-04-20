@@ -63,7 +63,7 @@ code {
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-around;
+  justify-content: flex-start;
   margin-top:5px;
   margin-bottom: 1rem;
 }
@@ -74,9 +74,15 @@ code {
   padding: 3px 3px 3px 3px;
   margin-right: 5px;
   min-width:2em; 
+  margin-bottom: 3px;
+  margin-top: 3px;
 }
 
 .numberBox:hover {
   border-color: lightpink;
   transform: scale(1.2);
+}
+
+.emphasis {
+  font-weight: bold;
 }
