@@ -58,7 +58,7 @@ export default function DecodingPanel() {
         <textarea cols="40" rows="4" id="DecodingMessageInput" onChange = { messageChange }></textarea>
       </div>
       <div className="messageArea">
-        <p> Using for encryption algoritm { privateKey1 } and { privateKey2} </p>
+        <p> Using for encryption algorithm { privateKey1 } and { privateKey2} </p>
         <p id="encodedMessageArea">{ decodedMessage }</p>
       </div>
     </section>

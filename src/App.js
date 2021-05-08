@@ -6,7 +6,7 @@ import React, {useState} from 'react';
 
 
 function App() {
-  const [currentPanel,setCurrentPanel] = useState('keygen');
+  const [currentPanel,setCurrentPanel] = useState('encode');
   
   function onKeyGenClick() {
     setCurrentPanel('keygen');
@@ -18,13 +18,21 @@ function App() {
   return (
     <>
       <div className="App">
-        <header> <h1> Easy Crypto!</h1>
+        <header> <h1> First approach in cryptography</h1>
         <p> Easy implementation of the RSA algorithm </p>
         <div className="button-row">
-          <button onClick={ onKeyGenClick}>Key Generator</button>
-          <button onClick={ onEncodingClick}>Encoding/Decoding</button>
+          <button className="mainButton" onClick={ onEncodingClick}>Encoding/Decoding</button>
+          <button className="mainButton" onClick={ onKeyGenClick}>Key Generator</button>
         </div>
         </header>
+        <div id="exampleKeyPanel" className="panel">
+          <p>Some examples of public/private keys: </p>
+          <ul className="noBulletList">
+          <li><span className="keyValue">public: (23, 209) - private: (47,209)</span></li>
+          <li><span className="keyValue">public: (267, 1633) - private: (323,1633)</span></li>
+          </ul>
+          <p id="currentKeySet"></p>
+        </div>
         { currentPanel === 'keygen' ? <KeyGenerator /> :  <> <EncodingPanel /> <DecodingPanel /> </> }
         
       </div>

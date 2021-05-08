@@ -10,15 +10,10 @@ export default function KeyGenerator() {
   const [ message, setMessage ] = useState({});
   const [ firstPrime, setFirstPrime ] = useState();
   const [ secondPrime, setSecondPrime ] = useState();
-  const [ stepsList, setStepsList ] = useState([]);
   const [ coprimeArray, setCoprimeArray ] = useState([]);
   const [ privateKeyArray, setPrivateKeyArray ] = useState([]);
   const [ publicKey, setPublicKey ] = useState();
   const [ privateKey, setPrivateKey ] = useState();
-
-  function clearStepsList() {
-    setStepsList([]);
-  }
   
   // Helper function to help display of intermediary steps
   function displayProductofPrimes() {
@@ -32,7 +27,6 @@ export default function KeyGenerator() {
     console.log(firstPrime, secondPrime);
     let messageArray = [];
     if (firstPrime && secondPrime) {
-      clearStepsList();
       const b = JSBI.multiply(firstPrime, secondPrime);
       const phi_b = JSBI.multiply(JSBI.subtract(firstPrime, JSBI.BigInt(1)), JSBI.subtract(secondPrime, JSBI.BigInt(1)));
       
@@ -50,9 +44,8 @@ export default function KeyGenerator() {
           messageArray.push(`Potential public key: (${encodingKey.toString()},${b.toString()}), private key: ${potentialKeys[i].toString()}`);
         }
       }
-      setStepsList(messageArray);
     }
-  }, [firstPrime, secondPrime]);
+  }, [firstPrime, secondPrime, coprimeArray]);
   
   useEffect(() => {
     // when the public key changes, we have to update the list of potential candidates for the private key
@@ -63,7 +56,7 @@ export default function KeyGenerator() {
       setPrivateKeyArray(potentialKeys.map(x=>x.toString()));
     }
 
-  }, [publicKey])
+  }, [publicKey, coprimeArray, firstPrime, secondPrime])
 
   function logMessage(messageText, messageType='') {
     setMessage({ text: messageText, messageType: messageType });

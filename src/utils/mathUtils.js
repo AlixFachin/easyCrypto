@@ -69,14 +69,18 @@ export function findModuloInverses(a, b, n=5) {
   let i= JSBI.BigInt(2);
   let nbFound = 0;
   let result = [];
-  while (nbFound < n && JSBI.lessThan(i, JSBI.BigInt(500))) {
-    if (JSBI.equal(JSBI.BigInt(1),JSBI.remainder(JSBI.multiply(a,i),b))) {
-      result.push(i);
-      nbFound++;
+
+  // Defensive programming: avoiding b equal to zero
+  if (JSBI.NE(b,0)) {
+    while (nbFound < n && JSBI.lessThan(i, JSBI.BigInt(500))) {
+      if (JSBI.equal(JSBI.BigInt(1),JSBI.remainder(JSBI.multiply(a,i),b))) {
+        result.push(i);
+        nbFound++;
+      }
+      // Going to the next loop
+      i = JSBI.add(i, JSBI.BigInt(1));
     }
-    // Going to the next loop
-    i = JSBI.add(i, JSBI.BigInt(1));
-  }
+  } 
   return result;
 }
 
@@ -95,6 +99,19 @@ export function decodeOneCharacter(JSBIcode, privateKey, publicKey2) {
   const decodedChar = JSBI.remainder( JSBI.exponentiate(JSBIcode, privateKey),publicKey2 )
   // console.log(`Output of decoding: ${codedChar}`);
   return String.fromCharCode(JSBI.toNumber(decodedChar) );
+}
+
+export function encodeCharacterSteps(character, publicKey1String, publicKey2String) {
+  const result = [];
+  const jsbiCharCode = JSBI.BigInt(character.charCodeAt(0));
+  result.push(jsbiCharCode.toString());
+  const jsbiPublicKey1 = JSBI.BigInt(publicKey1String);
+  const jsbiPublicKey2 = JSBI.BigInt(publicKey2String);
+  const powerResult = JSBI.exponentiate(jsbiCharCode, jsbiPublicKey1);
+  result.push(powerResult.toString());
+  const codedChar = JSBI.remainder(powerResult, jsbiPublicKey2);
+  result.push(codedChar.toString());
+  return result;
 }
 
 export function encodeString(inputString, privateKey1, privateKey2) {

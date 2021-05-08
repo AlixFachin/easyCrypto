@@ -28,6 +28,18 @@ code {
   
 }
 
+.mainButton {
+  font-family: 'VT323';
+  font-size: x-large;
+}
+
+.mainButton:hover {
+  background-color: black;
+  color: rgb(127,250,85);
+  border: none;
+  transition: all 0.5s ease;
+}
+
 .panel {
   width: 80%;
   background-color: rgba(255,255,255,0.9);
@@ -42,6 +54,7 @@ code {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  padding: 10px;
 }
 
 .errorWidget {
@@ -85,4 +98,10 @@ code {
 
 .emphasis {
   font-weight: bold;
+}
+
+.noBulletList {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
