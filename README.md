@@ -43,7 +43,11 @@ I would recommend to look at the following videos:
 * [Introduction to RSA](https://www.youtube.com/watch?v=4zahvcJ9glg&t=2s) : Great pratical explanation from Eddie Woo
 * [Public key cryptography](https://www.youtube.com/watch?v=wXB-V_Keiu8&t=805s) : Video from "the Art of the Problem"
 * [The Music of the Primes](https://www.goodreads.com/book/show/208916.The_Music_of_the_Primes) : Book by [Marcus du Sautoy](https://www.conted.ox.ac.uk/profiles/marcus-du-sautoy) regarding Riemann's hypothesis.
-And you can have a look at the following websites:
+* Udemy course about [Number Theory and Cryptography](https://www.udemy.com/course/number-theory-and-cryptography/)
+
+The following content is pretty math-heavy:
+* Wikipedia page regarding [Euler's theorem](https://en.wikipedia.org/wiki/Euler%27s_theorem)
+* Brilliant page regarding [Modular Arithmetic](https://brilliant.org/wiki/modular-arithmetic/)
 
 
 # Technologies used
