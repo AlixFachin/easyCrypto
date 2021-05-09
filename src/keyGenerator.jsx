@@ -7,6 +7,12 @@ import { getCoprimeList, findModuloInverses, isPrime} from './utils/mathUtils';
 
 export default function KeyGenerator() {
 
+  /* COMPONENT STATES
+  * firstPrime: type JSBI.BigInt -> contains the first Prime number selected
+  * secondPrime: type JSBI.BigInt -> contains the second Prime number selected
+  * coprimeArray: 
+  */
+
   const [ message, setMessage ] = useState({});
   const [ firstPrime, setFirstPrime ] = useState();
   const [ secondPrime, setSecondPrime ] = useState();
@@ -24,9 +30,9 @@ export default function KeyGenerator() {
   }
 
   useEffect(() => {
-    console.log(firstPrime, secondPrime);
     let messageArray = [];
     if (firstPrime && secondPrime) {
+      console.log(`Change primes: ${firstPrime.toString()}, ${secondPrime.toString()}`);
       const b = JSBI.multiply(firstPrime, secondPrime);
       const phi_b = JSBI.multiply(JSBI.subtract(firstPrime, JSBI.BigInt(1)), JSBI.subtract(secondPrime, JSBI.BigInt(1)));
       
@@ -45,11 +51,11 @@ export default function KeyGenerator() {
         }
       }
     }
-  }, [firstPrime, secondPrime, coprimeArray]);
+  }, [firstPrime, secondPrime]);
   
   useEffect(() => {
     // when the public key changes, we have to update the list of potential candidates for the private key
-    if (coprimeArray && coprimeArray.length>0) {
+    if (coprimeArray && coprimeArray.length>0 && publicKey) {
       
       const phi_b = JSBI.multiply(JSBI.subtract(firstPrime, JSBI.BigInt(1)), JSBI.subtract(secondPrime, JSBI.BigInt(1)));
       const potentialKeys = findModuloInverses(publicKey, phi_b, 5);
@@ -101,7 +107,7 @@ export default function KeyGenerator() {
   }
 
   function coPrimeSelected(e) {
-    // when the user selects a coprime number, we can display the potential stuff
+    // when the user selects a coprime number, we can display the potential candidates
     setPublicKey(JSBI.BigInt(Number(e.target.dataset["key"])));
   }
 
