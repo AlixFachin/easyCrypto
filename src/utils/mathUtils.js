@@ -72,7 +72,7 @@ export function findModuloInverses(a, b, n=5) {
 
   // Defensive programming: avoiding b equal to zero
   if (JSBI.NE(b,0)) {
-    while (nbFound < n && JSBI.lessThan(i, JSBI.BigInt(500))) {
+    while (nbFound < n && JSBI.lessThan(i, JSBI.BigInt(5000))) {
       if (JSBI.equal(JSBI.BigInt(1),JSBI.remainder(JSBI.multiply(a,i),b))) {
         result.push(i);
         nbFound++;

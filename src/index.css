@@ -1,13 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=PT+Sans&family=VT323&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&family=VT323&family=Maven+Pro&display=swap');
 
 body {
   margin: 0;
-  font-family: 'PT Sans', sans-serif;
+  font-family: 'Maven Pro', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: url('./markus-spiske-matrix-unsplash.jpg');
   background-size: 100% auto;
-
 }
 
 h1, h2 {
@@ -24,13 +23,17 @@ code {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  background-color: rgba(255,255,255,0.7);
-  
+  background-color: rgba(0,0,0,0.5);
+  min-height: 95vh;
 }
 
 .mainButton {
   font-family: 'VT323';
   font-size: x-large;
+}
+
+button {
+  font-size: large;
 }
 
 .mainButton:hover {
@@ -40,7 +43,15 @@ code {
   transition: all 0.5s ease;
 }
 
-.panel {
+#mainHeader {
+  width: 80%;
+  background-color: rgba(255,255,255,0.9);
+  border: 2px solid black;
+  margin-bottom: 0px;
+  padding-top: 1em;
+}
+
+.panel{
   width: 80%;
   background-color: rgba(255,255,255,0.9);
   border: 2px solid black;
@@ -53,7 +64,7 @@ code {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   padding: 10px;
 }
 
@@ -66,9 +77,16 @@ code {
 }
 
 .footer {
+  height: 1.5em;
   font-size: smaller;
   text-align: center;
   background-color: rgba(255,255,255,0.8);
+  height: 5vh;
+}
+
+.footer p{
+  vertical-align: middle;
+  display: inline-block;
 }
 
 .numberList {
@@ -104,4 +122,18 @@ code {
   list-style-type: none;
   padding: 0;
   margin: 0;
+}
+
+.formDiv {
+  padding: 5px;
+  vertical-align: top;
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.formDiv input,textarea {
+  margin-left: 0.5em;
+  margin-right: 2em;
 }

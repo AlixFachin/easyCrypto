@@ -54,12 +54,12 @@ export default function EncodingPanel() {
   return (<div className="panel">
     <header><h2>Text encoder</h2></header>
     <section>
-      <h3>Enter your public key:</h3>
-      <div>
+      <h3>Enter your public key</h3>
+      <div className="formDiv">
         <label htmlFor="PublicKeyInput1">Public Key 1</label><input type="text" id="PublicKeyInput1" onChange= { numberInputChange }></input>
         <label htmlFor="PublicKeyInput2">Public Key 2</label><input type="text" id="PublicKeyInput2" onChange = { numberInputChange } ></input>
       </div>
-      <div>
+      <div className="formDiv">
         <label htmlFor="EncodingMessageInput">Message to Encode:</label>
         <textarea cols="40" rows="4" id="EncodingMessageInput" onChange = { messageChange }></textarea>
       </div>

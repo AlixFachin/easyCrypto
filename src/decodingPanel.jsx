@@ -48,12 +48,12 @@ export default function DecodingPanel() {
   return (<div className="panel">
     <header><h2>Text decoder</h2></header>
     <section>
-      <h3>Enter your private key:</h3>
-      <div>
+      <h3>Enter your private key</h3>
+      <div className="formDiv">
         <label htmlFor="PrivateKeyInput1">Public Key 1</label><input type="text" id="PrivateKeyInput1" onChange= { numberInputChange }></input>
         <label htmlFor="PrivateKeyInput2">Public Key 2</label><input type="text" id="PrivateKeyInput2" onChange = { numberInputChange } ></input>
       </div>
-      <div>
+      <div className="formDiv">
         <label htmlFor="DecodingMessageInput">Message to Decode:</label>
         <textarea cols="40" rows="4" id="DecodingMessageInput" onChange = { messageChange }></textarea>
       </div>

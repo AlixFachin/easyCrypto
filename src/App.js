@@ -18,15 +18,15 @@ function App() {
   return (
     <>
       <div className="App">
-        <header> <h1> First approach in cryptography</h1>
-        <p> Easy implementation of the RSA algorithm </p>
+        <header id="mainHeader"> <h1> First approach in cryptography</h1>
+        <p> Simple implementation of the RSA algorithm </p>
         <div className="button-row">
           <button className="mainButton" onClick={ onEncodingClick}>Encoding/Decoding</button>
           <button className="mainButton" onClick={ onKeyGenClick}>Key Generator</button>
         </div>
         </header>
         <div id="exampleKeyPanel" className="panel">
-          <p>Some examples of public/private keys: </p>
+          <h3>Some examples of public/private keys </h3>
           <ul className="noBulletList">
           <li><span className="keyValue">public: (23, 209) - private: (47,209)</span></li>
           <li><span className="keyValue">public: (267, 1633) - private: (323,1633)</span></li>
@@ -36,8 +36,10 @@ function App() {
         { currentPanel === 'keygen' ? <KeyGenerator /> :  <> <EncodingPanel /> <DecodingPanel /> </> }
         
       </div>
-      <footer className="footer">Background photo by <a href="https://unsplash.com/@markusspiske?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Markus Spiske</a> on <a href="https://unsplash.com/s/photos/code?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-  </footer>
+      <footer className="footer">
+      <p> Background photo by <a href="https://unsplash.com/@markusspiske?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Markus Spiske</a> on <a href="https://unsplash.com/s/photos/code?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+      </p>
+      </footer>
     </>
   );
 }
